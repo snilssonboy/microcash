@@ -92,7 +92,7 @@ var UpdateEverything = function(){
 	CalculatePerClick();
 	CalculatePerSec();
 
-	// Navbar display items
+	/*// Navbar display items
 	$('#moneydisplay').html("<i class='fa fa-usd'></i> " + money.toFixed(2));
     	$('#perclickdisplay').html("<i class='fa fa-mouse-pointer'></i> " + moneyPerClick.toFixed(2));
     	$('#persecdisplay').html("<i class='fa fa-repeat'></i> " + moneyPerSec.toFixed(2));
@@ -124,7 +124,7 @@ var UpdateEverything = function(){
         	$('#clicktier2 > button').html("Buy - Costs : " + ct[2].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
 
         	$('#clicktier3 > h4').html("Tier 3 Click - " + ct[3].automatic + " (" + ct[3].manual + ")");
-        	$('#clicktier3 > button').html("Buy - Costs : " + ct[3].cost.toFixed(3) + " <i class='fa fa-usd'></i>");
+        	$('#clicktier3 > button').html("Buy - Costs : " + ct[3].cost.toFixed(3) + " <i class='fa fa-usd'></i>");*/
         	
 }
 
