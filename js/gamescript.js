@@ -101,29 +101,29 @@ var UpdateEverything = function(){
     	$('#clickbutton').html("+ " + moneyPerClick.toFixed(2) + " <i class='fa fa-usd'></i> / <i class='fa fa-mouse-pointer'></i>");
 
     	// AUTOMATRON TIERS
-    	$('#automatron > h4').html("Automatron - " + at[0].automatic + " (" + at[0].manual + ")");
+    	$('#automatron > h4').html("Autobot - " + at[0].automatic + " (" + at[0].manual + ")");
     	$('#automatron > button').html("Buy - Costs : " + at[0].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
     	
-	$('#autotier1 > h4').html("Tier 1 Auto - " + at[1].automatic + " (" + at[1].manual + ")");
+	$('#autotier1 > h4').html("Calculator - " + at[1].automatic + " (" + at[1].manual + ")");
     	$('#autotier1 > button').html("Buy - Costs : " + at[1].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
 
-    	$('#autotier2 > h4').html("Tier 2 Auto - " + at[2].automatic + " (" + at[2].manual + ")");
+    	$('#autotier2 > h4').html("Laptop - " + at[2].automatic + " (" + at[2].manual + ")");
     	$('#autotier2 > button').html("Buy - Costs : " + at[2].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
 
-    	$('#autotier3 > h4').html("Tier 3 Auto - " + at[3].automatic + " (" + at[3].manual + ")");
+    	$('#autotier3 > h4').html("Automatron - " + at[3].automatic + " (" + at[3].manual + ")");
     	$('#autotier3 > button').html("Buy - Costs : " + at[3].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
 
         	// CLICKBOOST TIERS
-        	$('#clickboost > h4').html("Clickboost - " + ct[0].automatic + " (" + ct[0].manual + ")");
+        	$('#clickboost > h4').html("Pointer - " + ct[0].automatic + " (" + ct[0].manual + ")");
         	$('#clickboost > button').html("Buy - Costs : " + ct[0].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
 
-        	$('#clicktier1 > h4').html("Tier 1 Click - " + ct[1].automatic + " (" + ct[1].manual + ")");
+        	$('#clicktier1 > h4').html("Pointerator - " + ct[1].automatic + " (" + ct[1].manual + ")");
         	$('#clicktier1 > button').html("Buy - Costs : " + ct[1].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
 
-        	$('#clicktier2 > h4').html("Tier 2 Click - " + ct[2].automatic + " (" + ct[2].manual + ")");
+        	$('#clicktier2 > h4').html("Click Machine - " + ct[2].automatic + " (" + ct[2].manual + ")");
         	$('#clicktier2 > button').html("Buy - Costs : " + ct[2].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
 
-        	$('#clicktier3 > h4').html("Tier 3 Click - " + ct[3].automatic + " (" + ct[3].manual + ")");
+        	$('#clicktier3 > h4').html("Click Nuke - " + ct[3].automatic + " (" + ct[3].manual + ")");
         	$('#clicktier3 > button').html("Buy - Costs : " + ct[3].cost.toFixed(3) + " <i class='fa fa-usd'></i>");
         	
 }
