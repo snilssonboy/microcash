@@ -58,10 +58,52 @@
 
 <div class="container">
   <div class="jumbotron">
+      <div class="row">
+
+        <div class="col-md-4">
+          <ul class="list-group">
+            <li class="list-group-item pull-left">
+              <p id="moneydisplay2">Money: 0.00 <i class="fa fa-usd"></i></p>
+            </li>
+            <li class="list-group-item pull-left">
+              <p id="perclickdisplay2">Per Click: 0.00 <i class="fa fa-mouse-pointer"></i></p>
+            </li>
+            <li class="list-group-item pull-left">
+              <p id="persecdisplay2">Per Second: 0.00 <i class="fa fa-repeat"></i></p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+              <h4 class="text-center">Work</h4>
+              <button id="clickbutton" class="btn-custom btn center-block fill" onclick="Click()">Javascript not connected<i class="fa fa-usd"></i></button>
+        </div>
+
+        <div class="col-md-4">
+          <ul class="list-group">
+            <li class="list-group-item pull-right">
+              <p id="clickcounter">Total Clicks: 0 <i class="fa fa-mouse-pointer"></i></p>
+            </li>
+            <li class="list-group-item pull-right">
+              <p id="cyclecounter">Total Cycles: 0 <i class="fa fa-clock-o"></i></p>
+            </li>
+            <li class="list-group-item pull-right">
+              <p id="totalcounter">Total Earned: 0.00 <i class="fa fa-usd"></i></p>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      
+  </div>
+</div>
+<!--
+<div class="container">
+  <div class="jumbotron">
       <h4 class="text-center">Click this button to earn money</h4>
      <button id="clickbutton" class="btn-custom btn center-block fill" onclick="Click()">Javascript not connected<i class="fa fa-usd"></i></button>
   </div>
-</div>
+</div>-->
 
   <div class="container">
 
@@ -122,28 +164,28 @@
       </div>
       <div class="col-md-3">
 
-        <div>
+        <div id="tictac">
         <h4 class="text-center">TicTac - 0 (0)</h4>
         <p class="text-center">Reduces ticklength by 1 ms</p>
-        <button class="btn btn-custom center-block fill" >Buy - Costs : 1.00 <i class="fa fa-usd"></i></button>
+        <button class="btn btn-custom center-block fill" onclick="BuyTick(0)">Buy - Costs : 1.00 <i class="fa fa-usd"></i></button>
         </div>
 
-        <div>
+        <div id="tictier1">
         <h4 class="text-center">Hourglass - 0 (0)</h4>
         <p class="text-center">+1 TicTac / tickcycle</p>
-        <button class="btn btn-custom center-block fill" >Buy - Costs : 1.00 <i class="fa fa-usd"></i></button>
+        <button class="btn btn-custom center-block fill" onclick="BuyTick(1)">Buy - Costs : 1.00 <i class="fa fa-usd"></i></button>
         </div>
 
-        <div>
+        <div id="tictier2">
         <h4 class="text-center">Stopwatch - 0 (0)</h4>
         <p class="text-center">+1 Hourglass / tickcycle</p>
-        <button class="btn btn-custom center-block fill" >Buy - Costs : 1.00 <i class="fa fa-usd"></i></button>
+        <button class="btn btn-custom center-block fill" onclick="BuyTick(2)">Buy - Costs : 1.00 <i class="fa fa-usd"></i></button>
         </div>
 
-        <div>
+        <div id="tictier3">
         <h4 class="text-center">Time Void - 0 (0)</h4>
         <p class="text-center">+1 Stopwatch / tickcycle</p>
-        <button class="btn btn-custom center-block fill" >Buy - Costs : 1.00 <i class="fa fa-usd"></i></button>
+        <button class="btn btn-custom center-block fill" onclick="BuyTick(3)">Buy - Costs : 1.00 <i class="fa fa-usd"></i></button>
         </div>
 
       </div>
