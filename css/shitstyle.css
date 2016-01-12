@@ -4,9 +4,9 @@ html {
 }
 
 body { 
-    background: #085078; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #085078 , #85D8CE); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #085078 , #85D8CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #1a1a1a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #1a1a1a , #333333); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #1a1a1a , #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding-top: 65px; 
     margin-bottom: 60px;
     color: #fff;
@@ -32,8 +32,9 @@ body {
 }
 
 .navbar-inverse{
-    background-color: #2bb7c9;
-    border-bottom: 1px solid #96dfe9;
+    background: -webkit-linear-gradient(to left, #333333 , #1a1a1a); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #333333 , #1a1a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-bottom: 1px solid #4d4d4d;
 }
 
 .navbar-fixed-bottom .navbar-brand {
@@ -41,12 +42,13 @@ body {
 }
 
 .footer {
-    border-top: 1px solid #96dfe9;
+    border-top: 1px solid #4d4d4d;
     position: absolute;
     bottom: 0px;
     width: 100%;
     height: 61px;
-    background-color: #1f8693;
+    background: -webkit-linear-gradient(to left, #333333 , #1a1a1a); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #333333 , #1a1a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .footer > .container {
@@ -72,13 +74,13 @@ p {
   margin-bottom: 0;
 }
 
-[class*="col-"] {
+[class*="col-md-3"] {
   padding-top: 0px;
   padding-bottom: 10px;
   background-color: rgba(43,50,50,.00);
-  border-left:  1px solid rgba(43,183,201,.351);
-  border-right:  1px solid rgba(43,183,201,.35);
-  border-top:  1px solid rgba(43,183,201,.9);
+  border-left:  1px solid rgba(77,77,77,.351);
+  border-right:  1px solid rgba(77,77,77,.35);
+  border-top:  1px solid rgba(77,77,77,.9);
 }
 
 .col-md-3:nth-child(2){
@@ -109,45 +111,45 @@ hr {
 }
 
 .btn-custom{
-    background-color: #72BCD8;
-    border-color: #fff;
+    background-color: #333333;
+    border-color: #4d4d4d;
     box-shadow: none;
     outline: none;
 }
 .btn-custom:hover{
-    background-color: #60b4d2;
-    border-color: #fff;
+    background-color: #333333;
+    border-color: #4d4d4d;
     box-shadow: none;
     outline: none;
     color:white;
 }
 
 .btn-custom:active {
-    background-color: #72BCD8;
-    border-color: #fff;
+    background-color: #333333;
+    border-color: #4d4d4d;
     box-shadow: none;
     outline: none;
     color:white;
 }
 
 .btn-custom:focus {   
-    background-color: #72BCD8;
-    border-color: white;
+    background-color: #333333;
+    border-color: #4d4d4d;
     box-shadow: none;
     outline: none;
     color:white;
 }  
 
 .btn-custom:visited {   
-    background-color: #72BCD8;
-    border-color: white;
+    background-color: #333333;
+    border-color: #4d4d4d;
     box-shadow: none;
     outline: none;
 }  
 
 .btn-custom:active:focus {
-    background-color: #9bd0e3;
-    border-color: #fff;
+    background-color: #404040;
+    border-color: #4d4d4d;
     box-shadow: none;
     outline: none;
 }
@@ -157,20 +159,23 @@ hr {
 }
 
 .progress{
-    background-color: #96dfe9;
+    background: -webkit-linear-gradient(to right, #404040 , #1a1a1a); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #404040 , #1a1a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     margin-top: 20px;
 }
 
 .progress-bar-success {
-    background-color: #6cd2e0;
+    background-color: #404040;
 }
 
 .jumbotron{
     padding: 0px;
     padding-top: 40px;
     padding-bottom:  0px;
-    background-color: #2bb7c9;
+    background: -webkit-linear-gradient(to top, #333333 , #1a1a1a); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #333333 , #1a1a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     margin-bottom: 15px;
+    border: 1px solid #4d4d4d;
 }
 
 .modal-title{
