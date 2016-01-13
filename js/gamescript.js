@@ -59,6 +59,61 @@ function CalculateTickLength(){
 	tickLength = 100000 - (tt[0].manual + tt[0].automatic);
 }
 
+function save(){
+	var save = {
+		tickLength: tickLength,
+		totalCycles: totalCycles,
+		money: money,
+		moneyPerSec: moneyPerSec,
+		moneyPerClick: moneyPerClick,
+		moneyTotal: moneyTotal,
+		clickCount: clickCount,
+		totalClicks: totalClicks,
+		ct: ct,
+		at: at,
+		tt: tt
+	}
+
+	localStorage.setItem("save", JSON.stringify(save));
+}
+
+function load(){
+	var savegame = JSON.parse(localStorage.getItem("save"));
+
+	if(typeof savegame.tickLength !== "undefined") 
+		tickLength = savegame.tickLength;
+
+	if(typeof savegame.totalCycles !== "undefined") 
+		totalCycles = savegame.totalCycles;
+
+	if(typeof savegame.money !== "undefined") 
+		money = savegame.money;
+
+	if(typeof savegame.moneyPerSec !== "undefined") 
+		moneyPerSec = savegame.moneyPerSec;
+
+	if(typeof savegame.moneyPerClick !== "undefined") 
+		moneyPerClick = savegame.moneyPerClick;
+
+	if(typeof savegame.moneyTotal !== "undefined") 
+		moneyTotal = savegame.moneyTotal;
+
+	if(typeof savegame.clickCount !== "undefined") 
+		clickCount = savegame.clickCount;
+
+	if(typeof savegame.totalClicks !== "undefined") 
+		totalClicks = savegame.totalClicks;
+
+	if(typeof savegame.ct !== "undefined") 
+		ct = savegame.ct;
+
+	if(typeof savegame.at !== "undefined") 
+		at = savegame.at;
+
+	if(typeof savegame.tt !== "undefined") 
+		tt = savegame.tt;
+}
+
 function BuyClick(x){
 	if(ct[x].cost <= money){
 		money -= ct[x].cost;
@@ -100,7 +155,8 @@ function ToggleStatsVisible(){
 }
 
 window.onload = function(){
-    UpdateEverything();
+	load();
+    	UpdateEverything();
 }
 
 var UpdateEverything = function(){
@@ -166,6 +222,7 @@ var UpdateEverything = function(){
         	
 }
 
+
 // Tick Cycle
 var tickCycle = setInterval(cycleTimer, 10);
 
@@ -182,8 +239,8 @@ function cycleTimer() {
 		totalCycles++;
 	}
 
-	$('#tickbar').width(((tick/tickLength) * 100).toFixed(2) + '%');
-	$('#tickpercent').html(((tick/tickLength) * 100).toFixed(0) + "%" + " (" + tick + "/" + tickLength + ")");
+	$('#tickbarwidth').width(((tick/tickLength) * 100).toFixed(2) + '%');
+	$('#tickbartext').html(((tick/tickLength) * 100).toFixed(0) + "%" + " (" + tick + "/" + tickLength + ")");
 
 	UpdateEverything();
 
@@ -199,3 +256,6 @@ function secTimer(){
 	UpdateEverything();
 }
 // Per Second Tick END
+
+var saveGame = setInterval(save, 60000);
+
