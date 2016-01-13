@@ -29,30 +29,23 @@
   <nav class="navbar navbar-inverse center navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </button>-->
+        </button>
         <a class="navbar-brand" href="#">MicroCash</a>
       </div>
 
-      <!--<div id="navbar" class="collapse navbar-collapse">
+      <div id="navbar" class="collapse navbar-collapse pull-right">
         <ul class="nav navbar-nav">
           <li class="hidden-xs divider-vertical"></li>
-          <li><a id="moneydisplay"><i class="fa fa-usd"></i> 0.00</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#statsModal"><i class="fa fa-bar-chart"></i> Statistics</a></li>
           <li class="hidden-xs divider-vertical"></li>
-          <li><a id="perclickdisplay"><i class="fa fa-mouse-pointer"></i> 0.00</a></li>
-          <li class="hidden-xs divider-vertical"></li>
-          <li><a id="persecdisplay"><i class="fa fa-repeat"></i> 0.00</a></li>
-          <li class="hidden-xs divider-vertical"></li>
-          <li><a href="#" onclick="ToggleStatsVisible()"><i class="fa fa-bar-chart"></i> Statistics</a></li>
-          <li class="hidden-xs divider-vertical"></li>
-          <li id="statsdisplay" class="hidden"><a href="#" id="statstotal">Total: 0.00  <i class='fa fa-usd'></i> (not implemented yet)</a></li>
-          <li class="pull-right"><a href="#" data-toggle="modal" data-target="#myModal">help!</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#helpModal">help!</a></li>
         </ul>
-      </div>-->
+      </div>
     </div>
   </nav>
 
@@ -75,8 +68,8 @@
         </div>
 
         <div class="col-md-4">
-              <h4 class="text-center hidden-sm hidden-xs">Work work</h4>
-              <button id="clickbutton" class="btn-custom btn center-block fill" onclick="Click()">Javascript not connected<i class="fa fa-usd"></i></button>
+              <h4 class="text-center hidden-sm hidden-xs">Click here to earn money</h4>
+              <button id="clickbutton" class="btn-custom btn center-block fill" onclick="Click()"><i class="fa fa-mouse-pointer"></i></button>
         </div>
 
         <div class="col-md-4">
@@ -239,7 +232,7 @@
   </div>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="helpModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -249,12 +242,38 @@
         <h4 class="modal-title">How to play!</h4>
       </div>
       <div class="modal-body">
-        <li>Click button to gain cash</li>
-        <li>Buy clickboosters to improve your clicking power</li>
-        <li>Unlock more tiers and buy higher tier clickboosters</li>
-        <li>A tier 2 unit will gradually improve the tier 1 unit, and tier 3 will improve tier 2 etc</li>
+        <li>Click button to earn money</li>
+        <li>Buy upgrades to increase your income</li>
+        <li>Autobots earn you money each second</li>
+        <li>Pointers increases money you earn each click</li>
+        <li>TicTac's reduces your ticklength by 1 milisecond</li>
+        <li>Tier upgrades unlocks the next tier of each upgrade</li>
+        <li>A tier 2 pointer (Pointerator) will give you a new Pointer for each 10 clicks</li>
+        <li>A tickcycle will give you Autobots and TicTacs, the tickcycle is displayed as a loading bar at the foot of the page, when it finishes it restarts</li>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn-custom btn" data-dismiss="modal">close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="statsModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Statistics</h4>
+      </div>
+      <div class="modal-body">
+        <p>Nothing here yet, woops!</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-custom btn pull-left" onclick="save()" data-dismiss="modal"><i class="fa fa-floppy-o"></i> Save</button>
+        <button class="btn-custom btn pull-left" onclick="load()" data-dismiss="modal"><i class="fa fa-upload"></i> Load</button>
         <button type="button" class="btn-custom btn" data-dismiss="modal">close</button>
       </div>
     </div>

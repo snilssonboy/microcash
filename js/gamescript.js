@@ -150,10 +150,6 @@ function BuyTick(x){
 	UpdateEverything();
 }
 
-function ToggleStatsVisible(){
-	$('#statsdisplay').toggleClass("hidden");
-}
-
 window.onload = function(){
 	load();
     	UpdateEverything();
@@ -177,9 +173,6 @@ var UpdateEverything = function(){
     	$('#clickcounter').html("Total Clicks: " + totalClicks.toString() + " <i class='fa fa-mouse-pointer'></i>");
     	$('#cyclecounter').html("Total Cycles: " + totalCycles.toString() + " <i class='fa fa-clock-o'></i>");
     	$('#totalcounter').html("Total Earned: " + moneyTotal.toFixed(2) + " <i class='fa fa-usd'></i>");
-
-    	// Jumbotron click button
-    	$('#clickbutton').html("Click to earn money");
 
     	// AUTOMATRON TIERS
     	$('#automatron > h4').html("Autobot - " + at[0].automatic + " (" + at[0].manual + ")");

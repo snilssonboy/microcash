@@ -15,8 +15,8 @@ body {
 .navbar .divider-vertical {
   height: 50px;
   margin: 0 9px;
-  border-right: 1px solid #41c5d7;
-  border-left: 1px solid #96dfe9;
+  border-right: 1px solid #262626;
+  border-left: 1px solid #4d4d4d;
 }
 
 .itempanel{
@@ -179,21 +179,19 @@ hr {
 }
 
 .modal-title{
-    color:#285767;
+    color:#e5f7ff;
 }
 
 .modal-body > li{
-    color:#285767;
+    color:#e5f7ff;
 }
 
 .modal-footer{
-    color:#285767;
+    color:#e5f7ff;
 }
 
 .modal-content{
-  background: #085078; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #40b2f2 , #85D8CE); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #40b2f2 , #85D8CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #4d4d4d;
 }
 
 .list-group-item{
