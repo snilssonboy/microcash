@@ -51,11 +51,6 @@ body {
     background: linear-gradient(to left, #333333 , #1a1a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.footer > .container {
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
 h4 {
   margin-top: 15px;
   font-size: 21px;
@@ -154,18 +149,22 @@ hr {
     outline: none;
 }
 
-#tickprogress{
-
-}
-
 .progress{
     background: -webkit-linear-gradient(to right, #404040 , #1a1a1a); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #404040 , #1a1a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     margin-top: 20px;
+    height: 22px;
 }
 
 .progress-bar-success {
+    border-radius: 4px;
     background-color: #404040;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
 
 .jumbotron{
@@ -197,4 +196,9 @@ hr {
 .list-group-item{
   background-color: rgba(0,0,0,0.00);
   border: none;
+}
+
+.footer-item{
+  position: relative;
+  height: 100%;
 }

@@ -233,7 +233,7 @@ function cycleTimer() {
 	}
 
 	$('#tickbarwidth').width(((tick/tickLength) * 100).toFixed(2) + '%');
-	$('#tickbartext').html(((tick/tickLength) * 100).toFixed(0) + "%" + " (" + tick + "/" + tickLength + ")");
+	$('#tickbartext').html(((tick/tickLength) * 100).toFixed(0) + "%"/* + " (" + tick + "/" + tickLength + ")"*/);
 
 	UpdateEverything();
 
