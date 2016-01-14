@@ -59,6 +59,34 @@ function CalculateTickLength(){
 	tickLength = 100000 - (tt[0].manual + tt[0].automatic);
 }
 
+function ShortifyNumber(valueToConvert){
+	var converted = "";
+
+	if(valueToConvert >= Math.pow(10, 27)){
+		converted = (valueToConvert / Math.pow(10, 27)).toFixed(2) + " Oc";
+	}else if(valueToConvert >= Math.pow(10, 24)){
+		converted = (valueToConvert / Math.pow(10, 24)).toFixed(2) + " Sp";
+	}else if(valueToConvert >= Math.pow(10, 21)){
+		converted = (valueToConvert / Math.pow(10, 21)).toFixed(2) + " Sx";
+	}else if(valueToConvert >= Math.pow(10, 18)){
+		converted = (valueToConvert / Math.pow(10, 18)).toFixed(2) + " Qi";
+	}else if(valueToConvert >= Math.pow(10, 15)){
+		converted = (valueToConvert / Math.pow(10, 15)).toFixed(2) + " Qa";
+	}else if(valueToConvert >= Math.pow(10, 12)){
+		converted = (valueToConvert / Math.pow(10, 12)).toFixed(2) + " T";
+	}else if(valueToConvert >= Math.pow(10, 9)){
+		converted = (valueToConvert / Math.pow(10, 9)).toFixed(2) + " B";
+	}else if(valueToConvert >= Math.pow(10, 6)){
+		converted = (valueToConvert / Math.pow(10, 6)).toFixed(2) + " M";
+	}else if(valueToConvert >= 1000){
+		converted = (valueToConvert / 1000).toFixed(2) + " K";
+	}else if(valueToConvert == 0){
+		converted = 0;
+	}
+
+	return converted;
+}
+
 function save(){
 	var save = {
 		tickLength: tickLength,
@@ -160,58 +188,53 @@ var UpdateEverything = function(){
 	CalculatePerSec();
 	CalculateTickLength();
 
-	// Navbar display items
-	$('#moneydisplay').html("<i class='fa fa-usd'></i> " + money.toFixed(2));
-    	$('#perclickdisplay').html("<i class='fa fa-mouse-pointer'></i> " + moneyPerClick.toFixed(2));
-    	$('#persecdisplay').html("<i class='fa fa-repeat'></i> " + moneyPerSec.toFixed(2));
-
     	// Jumbotron display items
-    	$('#moneydisplay2').html("Money: " + money.toFixed(2) + " <i class='fa fa-usd'></i>");
-    	$('#perclickdisplay2').html("Per Click: " + moneyPerClick.toFixed(2) + " <i class='fa fa-mouse-pointer'></i>");
-    	$('#persecdisplay2').html("Per Second: " + moneyPerSec.toFixed(2) + " <i class='fa fa-repeat'></i>");
+    	$('#moneydisplay').html("Money: " + ShortifyNumber(money) + " <i class='fa fa-usd'></i>");
+    	$('#perclickdisplay').html("Per Click: " + ShortifyNumber(moneyPerClick) + " <i class='fa fa-mouse-pointer'></i>");
+    	$('#persecdisplay').html("Per Second: " + ShortifyNumber(moneyPerSec) + " <i class='fa fa-repeat'></i>");
 
-    	$('#clickcounter').html("Total Clicks: " + totalClicks.toString() + " <i class='fa fa-mouse-pointer'></i>");
+    	$('#clickcounter').html("Total Clicks: " + ShortifyNumber(totalClicks) + " <i class='fa fa-mouse-pointer'></i>");
     	$('#cyclecounter').html("Total Cycles: " + totalCycles.toString() + " <i class='fa fa-clock-o'></i>");
-    	$('#totalcounter').html("Total Earned: " + moneyTotal.toFixed(2) + " <i class='fa fa-usd'></i>");
+    	$('#totalcounter').html("Total Earned: " + ShortifyNumber(moneyTotal) + " <i class='fa fa-usd'></i>");
 
     	// AUTOMATRON TIERS
-    	$('#automatron > h4').html("Autobot - " + at[0].automatic + " (" + at[0].manual + ")");
-    	$('#automatron > button').html("Buy - Costs : " + at[0].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
+    	$('#automatron > h4').html("Autobot - " + ShortifyNumber(at[0].automatic) + " (" + ShortifyNumber(at[0].manual) + ")");
+    	$('#automatron > button').html("Buy - Costs : " + ShortifyNumber(at[0].cost) + " <i class='fa fa-usd'></i>");
     	
-	$('#autotier1 > h4').html("Calculator - " + at[1].automatic + " (" + at[1].manual + ")");
-    	$('#autotier1 > button').html("Buy - Costs : " + at[1].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
+	$('#autotier1 > h4').html("Calculator - " + ShortifyNumber(at[1].automatic) + " (" + ShortifyNumber(at[1].manual) + ")");
+    	$('#autotier1 > button').html("Buy - Costs : " + ShortifyNumber(at[1].cost) + " <i class='fa fa-usd'></i>");
 
-    	$('#autotier2 > h4').html("Laptop - " + at[2].automatic + " (" + at[2].manual + ")");
-    	$('#autotier2 > button').html("Buy - Costs : " + at[2].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
+    	$('#autotier2 > h4').html("Laptop - " + ShortifyNumber(at[2].automatic) + " (" + ShortifyNumber(at[2].manual) + ")");
+    	$('#autotier2 > button').html("Buy - Costs : " + ShortifyNumber(at[2].cost) + " <i class='fa fa-usd'></i>");
 
-    	$('#autotier3 > h4').html("Automatron - " + at[3].automatic + " (" + at[3].manual + ")");
-    	$('#autotier3 > button').html("Buy - Costs : " + at[3].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
+    	$('#autotier3 > h4').html("Automatron - " + ShortifyNumber(at[3].automatic) + " (" + ShortifyNumber(at[3].manual) + ")");
+    	$('#autotier3 > button').html("Buy - Costs : " + ShortifyNumber(at[3].cost) + " <i class='fa fa-usd'></i>");
 
         	// CLICKBOOST TIERS
-        	$('#clickboost > h4').html("Pointer - " + ct[0].automatic + " (" + ct[0].manual + ")");
-        	$('#clickboost > button').html("Buy - Costs : " + ct[0].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
+        	$('#clickboost > h4').html("Pointer - " + ShortifyNumber(ct[0].automatic) + " (" + ShortifyNumber(ct[0].manual) + ")");
+        	$('#clickboost > button').html("Buy - Costs : " + ShortifyNumber(ct[0].cost) + " <i class='fa fa-usd'></i>");
 
-        	$('#clicktier1 > h4').html("Pointerator - " + ct[1].automatic + " (" + ct[1].manual + ")");
-        	$('#clicktier1 > button').html("Buy - Costs : " + ct[1].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
+        	$('#clicktier1 > h4').html("Pointerator - " + ShortifyNumber(ct[1].automatic) + " (" + ShortifyNumber(ct[1].manual) + ")");
+        	$('#clicktier1 > button').html("Buy - Costs : " + ShortifyNumber(ct[1].cost) + " <i class='fa fa-usd'></i>");
 
-        	$('#clicktier2 > h4').html("Click Machine - " + ct[2].automatic + " (" + ct[2].manual + ")");
-        	$('#clicktier2 > button').html("Buy - Costs : " + ct[2].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
+        	$('#clicktier2 > h4').html("Click Machine - " + ShortifyNumber(ct[2].automatic) + " (" + ShortifyNumber(ct[2].manual) + ")");
+        	$('#clicktier2 > button').html("Buy - Costs : " + ShortifyNumber(ct[2].cost) + " <i class='fa fa-usd'></i>");
 
-        	$('#clicktier3 > h4').html("Click Nuke - " + ct[3].automatic + " (" + ct[3].manual + ")");
-        	$('#clicktier3 > button').html("Buy - Costs : " + ct[3].cost.toFixed(3) + " <i class='fa fa-usd'></i>");
+        	$('#clicktier3 > h4').html("Click Nuke - " + ShortifyNumber(ct[3].automatic) + " (" + ShortifyNumber(ct[3].manual) + ")");
+        	$('#clicktier3 > button').html("Buy - Costs : " + ShortifyNumber(ct[3].cost) + " <i class='fa fa-usd'></i>");
 
         	// TICTAC TIERS
-        	$('#tictac > h4').html("TicTac - " + tt[0].automatic + " (" + tt[0].manual + ")");
-        	$('#tictac > button').html("Buy - Costs : " + tt[0].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
+        	$('#tictac > h4').html("TicTac - " + ShortifyNumber(tt[0].automatic) + " (" + ShortifyNumber(tt[0].manual) + ")");
+        	$('#tictac > button').html("Buy - Costs : " + ShortifyNumber(tt[0].cost) + " <i class='fa fa-usd'></i>");
 
-        	$('#tictier1 > h4').html("Hourglass - " + tt[1].automatic + " (" + tt[1].manual + ")");
-        	$('#tictier1 > button').html("Buy - Costs : " + tt[1].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
+        	$('#tictier1 > h4').html("Hourglass - " + ShortifyNumber(tt[1].automatic) + " (" + ShortifyNumber(tt[1].manual) + ")");
+        	$('#tictier1 > button').html("Buy - Costs : " + ShortifyNumber(tt[1].cost) + " <i class='fa fa-usd'></i>");
 
-        	$('#tictier2 > h4').html("Stopwatch - " + tt[2].automatic + " (" + tt[2].manual + ")");
-        	$('#tictier2 > button').html("Buy - Costs : " + tt[2].cost.toFixed(2) + " <i class='fa fa-usd'></i>");
+        	$('#tictier2 > h4').html("Stopwatch - " + ShortifyNumber(tt[2].automatic) + " (" + ShortifyNumber(tt[2].manual) + ")");
+        	$('#tictier2 > button').html("Buy - Costs : " + ShortifyNumber(tt[2].cost) + " <i class='fa fa-usd'></i>");
 
-        	$('#tictier3 > h4').html("Time Void - " + tt[3].automatic + " (" + tt[3].manual + ")");
-        	$('#tictier3 > button').html("Buy - Costs : " + tt[3].cost.toFixed(3) + " <i class='fa fa-usd'></i>");
+        	$('#tictier3 > h4').html("Time Void - " + ShortifyNumber(tt[3].automatic) + " (" + ShortifyNumber(tt[3].manual) + ")");
+        	$('#tictier3 > button').html("Buy - Costs : " + ShortifyNumber(tt[3].cost) + " <i class='fa fa-usd'></i>");
         	
 }
 
@@ -244,11 +267,22 @@ function cycleTimer() {
 var secTick = setInterval(secTimer, 1000);
 
 function secTimer(){
+	// Adds gold from Autobots
 	money += moneyPerSec;
 	moneyTotal += moneyPerSec;
 	UpdateEverything();
+
+	// Use function for tick cycle text in jumbotron
+	var a = moment.duration(tickLength - tick);
+	var a = a.minutes() + "m " + a.seconds() + "s";
+
+
+	$('#jumboticktext').html(a + ' until next tickcycle completes.');
 }
 // Per Second Tick END
 
 var saveGame = setInterval(save, 60000);
 
+function wipeSave(){
+	localStorage.removeItem("save");
+}
