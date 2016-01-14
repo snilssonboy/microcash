@@ -59,7 +59,7 @@ function CalculateTickLength(){
 	tickLength = 100000 - (tt[0].manual + tt[0].automatic);
 }
 
-function ShortifyNumber(valueToConvert){
+function ShortifyNumber(valueToConvert, x){
 	var converted = "";
 
 	if(valueToConvert >= Math.pow(10, 27)){
@@ -80,7 +80,9 @@ function ShortifyNumber(valueToConvert){
 		converted = (valueToConvert / Math.pow(10, 6)).toFixed(2) + " M";
 	}else if(valueToConvert >= 1000){
 		converted = (valueToConvert / 1000).toFixed(2) + " K";
-	}else if(valueToConvert < 1000){
+	}else if(valueToConvert < 1000 && x == "mpc"){
+		converted = valueToConvert.toFixed(2);
+	}else if(valueToConvert < 999){
 		converted = valueToConvert.toFixed(0);
 	}
 
@@ -189,9 +191,9 @@ var UpdateEverything = function(){
 	CalculateTickLength();
 
     	// Jumbotron display items
-    	$('#moneydisplay').html("Money: " + ShortifyNumber(money) + " <i class='fa fa-usd'></i>");
-    	$('#perclickdisplay').html("Per Click: " + ShortifyNumber(moneyPerClick) + " <i class='fa fa-mouse-pointer'></i>");
-    	$('#persecdisplay').html("Per Second: " + ShortifyNumber(moneyPerSec) + " <i class='fa fa-repeat'></i>");
+    	$('#moneydisplay').html("Money: " + ShortifyNumber(money, "mpc") + " <i class='fa fa-usd'></i>");
+    	$('#perclickdisplay').html("Per Click: " + ShortifyNumber(moneyPerClick, "mpc") + " <i class='fa fa-mouse-pointer'></i>");
+    	$('#persecdisplay').html("Per Second: " + ShortifyNumber(moneyPerSec, "mpc") + " <i class='fa fa-repeat'></i>");
 
     	$('#clickcounter').html("Total Clicks: " + ShortifyNumber(totalClicks) + " <i class='fa fa-mouse-pointer'></i>");
     	$('#cyclecounter').html("Total Cycles: " + totalCycles.toString() + " <i class='fa fa-clock-o'></i>");
@@ -199,42 +201,42 @@ var UpdateEverything = function(){
 
     	// AUTOMATRON TIERS
     	$('#automatron > h4').html("Autobot - " + ShortifyNumber(at[0].automatic) + " (" + ShortifyNumber(at[0].manual) + ")");
-    	$('#automatron > button').html("Buy - Costs : " + ShortifyNumber(at[0].cost) + " <i class='fa fa-usd'></i>");
+    	$('#automatron > button').html("Buy - Costs : " + ShortifyNumber(at[0].cost, "mpc") + " <i class='fa fa-usd'></i>");
     	
 	$('#autotier1 > h4').html("Calculator - " + ShortifyNumber(at[1].automatic) + " (" + ShortifyNumber(at[1].manual) + ")");
-    	$('#autotier1 > button').html("Buy - Costs : " + ShortifyNumber(at[1].cost) + " <i class='fa fa-usd'></i>");
+    	$('#autotier1 > button').html("Buy - Costs : " + ShortifyNumber(at[1].cost, "mpc") + " <i class='fa fa-usd'></i>");
 
     	$('#autotier2 > h4').html("Laptop - " + ShortifyNumber(at[2].automatic) + " (" + ShortifyNumber(at[2].manual) + ")");
-    	$('#autotier2 > button').html("Buy - Costs : " + ShortifyNumber(at[2].cost) + " <i class='fa fa-usd'></i>");
+    	$('#autotier2 > button').html("Buy - Costs : " + ShortifyNumber(at[2].cost, "mpc") + " <i class='fa fa-usd'></i>");
 
     	$('#autotier3 > h4').html("Automatron - " + ShortifyNumber(at[3].automatic) + " (" + ShortifyNumber(at[3].manual) + ")");
-    	$('#autotier3 > button').html("Buy - Costs : " + ShortifyNumber(at[3].cost) + " <i class='fa fa-usd'></i>");
+    	$('#autotier3 > button').html("Buy - Costs : " + ShortifyNumber(at[3].cost, "mpc") + " <i class='fa fa-usd'></i>");
 
         	// CLICKBOOST TIERS
         	$('#clickboost > h4').html("Pointer - " + ShortifyNumber(ct[0].automatic) + " (" + ShortifyNumber(ct[0].manual) + ")");
-        	$('#clickboost > button').html("Buy - Costs : " + ShortifyNumber(ct[0].cost) + " <i class='fa fa-usd'></i>");
+        	$('#clickboost > button').html("Buy - Costs : " + ShortifyNumber(ct[0].cost, "mpc") + " <i class='fa fa-usd'></i>");
 
         	$('#clicktier1 > h4').html("Pointerator - " + ShortifyNumber(ct[1].automatic) + " (" + ShortifyNumber(ct[1].manual) + ")");
-        	$('#clicktier1 > button').html("Buy - Costs : " + ShortifyNumber(ct[1].cost) + " <i class='fa fa-usd'></i>");
+        	$('#clicktier1 > button').html("Buy - Costs : " + ShortifyNumber(ct[1].cost, "mpc") + " <i class='fa fa-usd'></i>");
 
         	$('#clicktier2 > h4').html("Click Machine - " + ShortifyNumber(ct[2].automatic) + " (" + ShortifyNumber(ct[2].manual) + ")");
-        	$('#clicktier2 > button').html("Buy - Costs : " + ShortifyNumber(ct[2].cost) + " <i class='fa fa-usd'></i>");
+        	$('#clicktier2 > button').html("Buy - Costs : " + ShortifyNumber(ct[2].cost, "mpc") + " <i class='fa fa-usd'></i>");
 
         	$('#clicktier3 > h4').html("Click Nuke - " + ShortifyNumber(ct[3].automatic) + " (" + ShortifyNumber(ct[3].manual) + ")");
-        	$('#clicktier3 > button').html("Buy - Costs : " + ShortifyNumber(ct[3].cost) + " <i class='fa fa-usd'></i>");
+        	$('#clicktier3 > button').html("Buy - Costs : " + ShortifyNumber(ct[3].cost, "mpc") + " <i class='fa fa-usd'></i>");
 
         	// TICTAC TIERS
         	$('#tictac > h4').html("TicTac - " + ShortifyNumber(tt[0].automatic) + " (" + ShortifyNumber(tt[0].manual) + ")");
-        	$('#tictac > button').html("Buy - Costs : " + ShortifyNumber(tt[0].cost) + " <i class='fa fa-usd'></i>");
+        	$('#tictac > button').html("Buy - Costs : " + ShortifyNumber(tt[0].cost, "mpc") + " <i class='fa fa-usd'></i>");
 
         	$('#tictier1 > h4').html("Hourglass - " + ShortifyNumber(tt[1].automatic) + " (" + ShortifyNumber(tt[1].manual) + ")");
-        	$('#tictier1 > button').html("Buy - Costs : " + ShortifyNumber(tt[1].cost) + " <i class='fa fa-usd'></i>");
+        	$('#tictier1 > button').html("Buy - Costs : " + ShortifyNumber(tt[1].cost, "mpc") + " <i class='fa fa-usd'></i>");
 
         	$('#tictier2 > h4').html("Stopwatch - " + ShortifyNumber(tt[2].automatic) + " (" + ShortifyNumber(tt[2].manual) + ")");
-        	$('#tictier2 > button').html("Buy - Costs : " + ShortifyNumber(tt[2].cost) + " <i class='fa fa-usd'></i>");
+        	$('#tictier2 > button').html("Buy - Costs : " + ShortifyNumber(tt[2].cost, "mpc") + " <i class='fa fa-usd'></i>");
 
         	$('#tictier3 > h4').html("Time Void - " + ShortifyNumber(tt[3].automatic) + " (" + ShortifyNumber(tt[3].manual) + ")");
-        	$('#tictier3 > button').html("Buy - Costs : " + ShortifyNumber(tt[3].cost) + " <i class='fa fa-usd'></i>");
+        	$('#tictier3 > button').html("Buy - Costs : " + ShortifyNumber(tt[3].cost, "mpc") + " <i class='fa fa-usd'></i>");
         	
 }
 
