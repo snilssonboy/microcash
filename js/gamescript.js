@@ -80,8 +80,8 @@ function ShortifyNumber(valueToConvert){
 		converted = (valueToConvert / Math.pow(10, 6)).toFixed(2) + " M";
 	}else if(valueToConvert >= 1000){
 		converted = (valueToConvert / 1000).toFixed(2) + " K";
-	}else if(valueToConvert == 0){
-		converted = 0;
+	}else if(valueToConvert < 1000){
+		converted = valueToConvert;
 	}
 
 	return converted;
