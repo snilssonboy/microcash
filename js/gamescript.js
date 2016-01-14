@@ -81,7 +81,7 @@ function ShortifyNumber(valueToConvert){
 	}else if(valueToConvert >= 1000){
 		converted = (valueToConvert / 1000).toFixed(2) + " K";
 	}else if(valueToConvert < 1000){
-		converted = valueToConvert;
+		converted = valueToConvert.toFixed(0);
 	}
 
 	return converted;
