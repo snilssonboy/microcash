@@ -48,6 +48,7 @@ function Click(){
 
 }
 
+
 function CalculatePerClick(){
 	moneyPerClick = 0.10 + ct[0].upgrade * (ct[0].manual + ct[0].automatic);
 }
@@ -57,7 +58,10 @@ function CalculatePerSec(){
 }
 
 function CalculateTickLength(){
+	// Reduces effectiveness of upgrade incrementally
 	tickLength = 100000 - Math.pow((tt[0].manual + tt[0].automatic), 0.9);
+	// Clamps min/max ticklength between 5000ms and 100000ms
+	tickLength = Math.max(5000, Math.min((100000 - Math.pow((tt[0].manual + tt[0].automatic), 0.9)), 100000));
 }
 
 function ShortifyNumber(valueToConvert, x){
