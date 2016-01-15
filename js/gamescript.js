@@ -24,7 +24,7 @@ var Item = function(bc,c,u,m,a){
 var at = [new Item(5.00,5.00,0.10,0,0), new Item(500.00,500.00,null,0,0), new Item(30000,30000,null,0,0), new Item(9000000,9000000,null,0,0)];
 
 // Click tier items
-var ct = [new Item(1.50,1.50,0.10,0,0), new Item(1000.00,1000.00,null,0,0), new Item(900000,900000,null,0,0), new Item(10000000,10000000,null,0,0)];
+var ct = [new Item(1.50,1.50,0.10,0,0), new Item(1000.00,1000.00,null,0,0), new Item(90000,90000,null,0,0), new Item(1000000,1000000,null,0,0)];
 
 // Tickcycle tier items
 var tt = [new Item(100.00,100.00,3.00,0,0), new Item(800.00,800.00,null,0,0), new Item(50000,50000,null,0,0), new Item(30000000,30000000,null,0,0)];
