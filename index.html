@@ -74,7 +74,7 @@
 
         <div class="col-md-4">
               <h4 class="text-center hidden-sm hidden-xs">Click here to earn money</h4>
-              <button id="clickbutton" class="btn-custom btn center-block fill" onclick="Click()"><i class="fa fa-mouse-pointer"></i></button>
+              <button style="height: 70px" id="clickbutton" class="btn-custom btn center-block fill" onclick="Click()"><i class="fa fa-mouse-pointer"></i></button>
 
                <div class="progress">
 
@@ -167,7 +167,7 @@
 
         <div id="tictac">
         <h4 class="text-center">TicTac - 0 (0)</h4>
-        <p class="text-center">Reduces ticklength by 1 ms</p>
+        <p class="text-center" id="tickreduction">Reduces ticklength by 1 ms</p>
         <button class="btn btn-custom center-block fill" onclick="BuyTick(0)">Buy - Costs : 1.00 <i class="fa fa-usd"></i></button>
         </div>
 
@@ -282,6 +282,7 @@
       <div class="modal-footer">
         <button class="btn-custom btn pull-left" onclick="save()" data-dismiss="modal"><i class="fa fa-floppy-o"></i> Save</button>
         <button class="btn-custom btn pull-left" onclick="load()" data-dismiss="modal"><i class="fa fa-upload"></i> Load</button>
+        <button class="btn-custom btn pull-left" onclick="wipeSave()" data-dismiss="modal"><i class="fa fa-trash"></i> Wipe Save</button>
         <button type="button" class="btn-custom btn" data-dismiss="modal">close</button>
       </div>
     </div>

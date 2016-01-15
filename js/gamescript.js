@@ -20,13 +20,14 @@ var Item = function(bc,c,u,m,a){
 	self.automatic = a;
 }
 
-// Click tier items
-var ct = [new Item(1.00,1.00,0.10,0,0), new Item(2.00,2.00,null,0,0), new Item(10,10,null,0,0), new Item(20,20,null,0,0)];
-
 // Automatron tier items
-var at = [new Item(1.00,1.00,0.10,0,0), new Item(2.00,2.00,null,0,0), new Item(10,10,null,0,0), new Item(20,20,null,0,0)];
+var at = [new Item(5.00,5.00,0.10,0,0), new Item(500.00,500.00,null,0,0), new Item(30000,30000,null,0,0), new Item(9000000,9000000,null,0,0)];
 
-var tt = [new Item(1.00,1.00,1.00,0,0), new Item(2.00,2.00,null,0,0), new Item(10,10,null,0,0), new Item(20,20,null,0,0)];
+// Click tier items
+var ct = [new Item(1.50,1.50,0.10,0,0), new Item(1000.00,1000.00,null,0,0), new Item(900000,900000,null,0,0), new Item(10000000,10000000,null,0,0)];
+
+// Tickcycle tier items
+var tt = [new Item(100.00,100.00,3.00,0,0), new Item(800.00,800.00,null,0,0), new Item(50000,50000,null,0,0), new Item(30000000,30000000,null,0,0)];
 
 function Click(){
 	money += moneyPerClick;
@@ -56,13 +57,57 @@ function CalculatePerSec(){
 }
 
 function CalculateTickLength(){
-	tickLength = 100000 - (tt[0].manual + tt[0].automatic);
+	tickLength = 100000 - Math.pow((tt[0].manual + tt[0].automatic), 0.9);
 }
 
 function ShortifyNumber(valueToConvert, x){
 	var converted = "";
 
-	if(valueToConvert >= Math.pow(10, 27)){
+	if(valueToConvert >= Math.pow(10, 93)){
+		converted = (valueToConvert / Math.pow(10, 93)).toFixed(2) + " Tg";
+	}else if(valueToConvert >= Math.pow(10, 90)){
+		converted = (valueToConvert / Math.pow(10, 90)).toFixed(2) + " NVi";
+	}else if(valueToConvert >= Math.pow(10, 87)){
+		converted = (valueToConvert / Math.pow(10, 87)).toFixed(2) + " OVi";
+	}else if(valueToConvert >= Math.pow(10, 84)){
+		converted = (valueToConvert / Math.pow(10, 84)).toFixed(2) + " SpVi";
+	}else if(valueToConvert >= Math.pow(10, 81)){
+		converted = (valueToConvert / Math.pow(10, 81)).toFixed(2) + " SxVi";
+	}else if(valueToConvert >= Math.pow(10, 78)){
+		converted = (valueToConvert / Math.pow(10, 78)).toFixed(2) + " QiVi";
+	}else if(valueToConvert >= Math.pow(10, 75)){
+		converted = (valueToConvert / Math.pow(10, 75)).toFixed(2) + " QaVi";
+	}else if(valueToConvert >= Math.pow(10, 72)){
+		converted = (valueToConvert / Math.pow(10, 72)).toFixed(2) + " TVi";
+	}else if(valueToConvert >= Math.pow(10, 69)){
+		converted = (valueToConvert / Math.pow(10, 69)).toFixed(2) + " DVi";
+	}else if(valueToConvert >= Math.pow(10, 66)){
+		converted = (valueToConvert / Math.pow(10, 66)).toFixed(2) + " UVi";
+	}else if(valueToConvert >= Math.pow(10, 63)){
+		converted = (valueToConvert / Math.pow(10, 63)).toFixed(2) + " Vi";
+	}else if(valueToConvert >= Math.pow(10, 60)){
+		converted = (valueToConvert / Math.pow(10, 60)).toFixed(2) + " NDc";
+	}else if(valueToConvert >= Math.pow(10, 57)){
+		converted = (valueToConvert / Math.pow(10, 57)).toFixed(2) + " OcDc";
+	}else if(valueToConvert >= Math.pow(10, 54)){
+		converted = (valueToConvert / Math.pow(10, 54)).toFixed(2) + " SpDc";
+	}else if(valueToConvert >= Math.pow(10, 51)){
+		converted = (valueToConvert / Math.pow(10, 51)).toFixed(2) + " SxDc";
+	}else if(valueToConvert >= Math.pow(10, 48)){
+		converted = (valueToConvert / Math.pow(10, 48)).toFixed(2) + " QiDc";
+	}else if(valueToConvert >= Math.pow(10, 45)){
+		converted = (valueToConvert / Math.pow(10, 45)).toFixed(2) + " QaDc";
+	}else if(valueToConvert >= Math.pow(10, 42)){
+		converted = (valueToConvert / Math.pow(10, 42)).toFixed(2) + " TDc";
+	}else if(valueToConvert >= Math.pow(10, 39)){
+		converted = (valueToConvert / Math.pow(10, 39)).toFixed(2) + " DDC";
+	}else if(valueToConvert >= Math.pow(10, 36)){
+		converted = (valueToConvert / Math.pow(10, 36)).toFixed(2) + " UDc";
+	}else if(valueToConvert >= Math.pow(10, 33)){
+		converted = (valueToConvert / Math.pow(10, 33)).toFixed(2) + " Dc";
+	}else if(valueToConvert >= Math.pow(10, 30)){
+		converted = (valueToConvert / Math.pow(10, 30)).toFixed(2) + " N";
+	}else if(valueToConvert >= Math.pow(10, 27)){
 		converted = (valueToConvert / Math.pow(10, 27)).toFixed(2) + " Oc";
 	}else if(valueToConvert >= Math.pow(10, 24)){
 		converted = (valueToConvert / Math.pow(10, 24)).toFixed(2) + " Sp";
@@ -148,7 +193,7 @@ function BuyClick(x){
 	if(ct[x].cost <= money){
 		money -= ct[x].cost;
 		ct[x].manual++;
-		ct[x].cost = ct[x].baseCost * Math.pow(1.60, ct[x].manual);
+		ct[x].cost = ct[x].baseCost * Math.pow(1.20, ct[x].manual);
 	}else{
 
 	}
@@ -160,7 +205,7 @@ function BuyAuto(x){
 	if(at[x].cost <= money){
 		money -= at[x].cost;
 		at[x].manual++;
-		at[x].cost = at[x].baseCost * Math.pow(1.60, at[x].manual);
+		at[x].cost = at[x].baseCost * Math.pow(1.15, at[x].manual);
 	}else{
 
 	}
@@ -226,6 +271,7 @@ var UpdateEverything = function(){
         	$('#clicktier3 > button').html("Buy - Costs : " + ShortifyNumber(ct[3].cost, "mpc") + " <i class='fa fa-usd'></i>");
 
         	// TICTAC TIERS
+        	$('#tickreduction').html("Reduces ticklength (" + (tickLength.toFixed(1)) + " ms)");
         	$('#tictac > h4').html("TicTac - " + ShortifyNumber(tt[0].automatic) + " (" + ShortifyNumber(tt[0].manual) + ")");
         	$('#tictac > button').html("Buy - Costs : " + ShortifyNumber(tt[0].cost, "mpc") + " <i class='fa fa-usd'></i>");
 
@@ -279,7 +325,7 @@ function secTimer(){
 	var a = a.minutes() + "m " + a.seconds() + "s";
 
 
-	$('#jumboticktext').html(a + ' until next tickcycle completes.');
+	$('#jumboticktext').html(a + ' until tickcycle completes');
 }
 // Per Second Tick END
 
