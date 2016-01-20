@@ -13,6 +13,11 @@
     <link href="css/shitstyle.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Gamescript -->
     <script src="js/gamescript.js"></script>
@@ -44,9 +49,9 @@
       <div id="navbar" class="collapse navbar-collapse pull-right">
 
         <ul class="nav navbar-nav">
-          <li><a href="#"><i class="fa fa-sticky-note-o"></i></a></li>
+          <li><a href="#" data-toggle="modal" data-target="#changelogmodal"><i class="fa fa-sticky-note-o"></i></a></li>
           <li class="hidden-xs divider-vertical"></li>
-          <li><a href="#" data-toggle="modal" data-target="#statsModal"><i class="fa fa-bar-chart"></i></a></li>
+          <li><a href="#" data-toggle="modal" onclick="ShowVersion()" data-target="#statsModal"><i class="fa fa-bar-chart"></i></a></li>
           <li class="hidden-xs divider-vertical"></li>
           <li><a href="#" data-toggle="modal" data-target="#helpModal"><i class="fa fa-info-circle"></i></a></li>
         </ul>
@@ -82,7 +87,7 @@
                     <p id="tickbartext" class="text-center"></p>
                   </div>
               </div>
-              <p id="jumboticktext"></p>
+              <p id="jumboticktext">1m 40s until tickcycle completes</p>
         </div>
 
 
@@ -283,6 +288,56 @@
         <button class="btn-custom btn pull-left" onclick="save()" data-dismiss="modal"><i class="fa fa-floppy-o"></i> Save</button>
         <button class="btn-custom btn pull-left" onclick="load()" data-dismiss="modal"><i class="fa fa-upload"></i> Load</button>
         <button class="btn-custom btn pull-left" onclick="wipeSave()" data-dismiss="modal"><i class="fa fa-trash"></i> Wipe Save</button>
+        <button id="gameversion" class="btn-custom btn pull-left">Version: 0.0.0.0</button>
+        <button type="button" class="btn-custom btn" data-dismiss="modal">close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="newVersion" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">New Version!</h4>
+      </div>
+      <div class="modal-body">
+        <p>There's a new version of this game deployed, it is adviced that you reset your progress and start over. You can keep playing from where you are now but you are not guaranteed a bug-free play experience.</p>
+        <p id="newVersionText">Your version: X.X.X.X , New Version X.X.X.X</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-custom btn pull-left" onclick="wipeSave()" data-dismiss="modal"><i class="fa fa-trash"></i> Wipe Save</button>
+        <button type="button" class="btn-custom btn" data-dismiss="modal">close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="changelogmodal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Changelog</h4>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li><strong>16 Jan 2016</strong> Added public changelog, changed prices of upgrades, added game version that will warn the user if the gameversion is too out of date and needs to wipe the save</li>          
+          <li><strong>15 Jan 2016</strong> Reworked tick upgrades and adder number formatting up to 10^93, added clamp for ticklength to prevent it being under 5 seconds</li>
+          <li><strong>14 Jan 2016</strong> Added number formatting for easier reading, fixed silly number bug where numbers under 1000 didn't show, added exceptions for number formatting for special cases</li>
+          <li><strong>13 Jan 2016</strong> Finally added Save/load system with autosave every 1 minute, updated modals, manual save/load button, took back navbar but buttons only, moved tickbar to jumbotron since it was hard to spot at the bottom</li>
+          <li><strong>12 Jan 2016</strong> Removed navbar contents and replaced with jumbotron, changed to a darker theme</li>
+          <li><strong>8 Jan 2016</strong> Changed styles, fixed "Javascript not connected", updated help screen, new upgrade names and formatting</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
         <button type="button" class="btn-custom btn" data-dismiss="modal">close</button>
       </div>
     </div>
@@ -299,13 +354,9 @@
       </div>-->
       <!--<p class="pull-right">Game Title by <a href="#">@snilsson</a></p>-->
 
-        <a class="pull-right vcenter" href="#" data-toggle="modal" data-target="#helpModal"><i class="fa fa-sticky-note-o"></i> changelog</a>
+        <!--<a class="pull-right vcenter" href="#" data-toggle="modal" data-target="#helpModal"><i class="fa fa-sticky-note-o"></i> changelog</a>-->
       </div>
   </footer>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

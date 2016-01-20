@@ -10,6 +10,9 @@ var moneyTotal = 0.00;
 var clickCount = 0;
 var totalClicks = 0.00;
 
+var playerGameVersion = "";
+var currentGameVersion = "0.0.0.1";
+
 var Item = function(bc,c,u,m,a){
 	self = this;
 
@@ -138,8 +141,14 @@ function ShortifyNumber(valueToConvert, x){
 	return converted;
 }
 
+function NewVersionWarning(){
+	$('#newVersion').modal('show');
+	$('#newVersionText').html("Your version: " + playerGameVersion + ", new version: " + currentGameVersion);
+}
+
 function save(){
 	var save = {
+		playerGameVersion: playerGameVersion,
 		tickLength: tickLength,
 		totalCycles: totalCycles,
 		money: money,
@@ -159,39 +168,72 @@ function save(){
 function load(){
 	var savegame = JSON.parse(localStorage.getItem("save"));
 
-	if(typeof savegame.tickLength !== "undefined") 
-		tickLength = savegame.tickLength;
+	/*if(savegame.playerGameVersion == null){
+		playerGameVersion = currentGameVersion;
+	}else if(typeof savegame.playerGameVersion !== "undefined"){
+		playerGameVersion = savegame.playerGameVersion;
+	}
 
-	if(typeof savegame.totalCycles !== "undefined") 
-		totalCycles = savegame.totalCycles;
+	if(savegame.playerGameVersion !== currentGameVersion){
+		NewVersionWarning();
+	}*/
 
-	if(typeof savegame.money !== "undefined") 
-		money = savegame.money;
+	//console.log(savegame.playerGameVersion);
 
-	if(typeof savegame.moneyPerSec !== "undefined") 
-		moneyPerSec = savegame.moneyPerSec;
 
-	if(typeof savegame.moneyPerClick !== "undefined") 
-		moneyPerClick = savegame.moneyPerClick;
+	if(savegame !== null){
 
-	if(typeof savegame.moneyTotal !== "undefined") 
-		moneyTotal = savegame.moneyTotal;
+		if(typeof savegame.playerGameVersion !== "undefined")
+			playerGameVersion = savegame.playerGameVersion;
 
-	if(typeof savegame.clickCount !== "undefined") 
-		clickCount = savegame.clickCount;
+		if(savegame.playerGameVersion == ""){
+			playerGameVersion = currentGameVersion;
+		}else if(savegame.playerGameVersion !== "" && savegame.playerGameVersion !== currentGameVersion){
+			NewVersionWarning();
+		}else{
+			playerGameVersion = savegame.playerGameVersion;
+		}
 
-	if(typeof savegame.totalClicks !== "undefined") 
-		totalClicks = savegame.totalClicks;
+		if(typeof savegame.tickLength !== "undefined") 
+			tickLength = savegame.tickLength;
 
-	if(typeof savegame.ct !== "undefined") 
-		ct = savegame.ct;
+		if(typeof savegame.totalCycles !== "undefined") 
+			totalCycles = savegame.totalCycles;
 
-	if(typeof savegame.at !== "undefined") 
-		at = savegame.at;
+		if(typeof savegame.money !== "undefined") 
+			money = savegame.money;
 
-	if(typeof savegame.tt !== "undefined") 
-		tt = savegame.tt;
+		if(typeof savegame.moneyPerSec !== "undefined") 
+			moneyPerSec = savegame.moneyPerSec;
+
+		if(typeof savegame.moneyPerClick !== "undefined") 
+			moneyPerClick = savegame.moneyPerClick;
+
+		if(typeof savegame.moneyTotal !== "undefined") 
+			moneyTotal = savegame.moneyTotal;
+
+		if(typeof savegame.clickCount !== "undefined") 
+			clickCount = savegame.clickCount;
+
+		if(typeof savegame.totalClicks !== "undefined") 
+			totalClicks = savegame.totalClicks;
+
+		if(typeof savegame.ct !== "undefined") 
+			ct = savegame.ct;
+
+		if(typeof savegame.at !== "undefined") 
+			at = savegame.at;
+
+		if(typeof savegame.tt !== "undefined") 
+			tt = savegame.tt;
+
+		save();
+	}else{
+		save();
+	}
+	save();
 }
+
 
 function BuyClick(x){
 	if(ct[x].cost <= money){
@@ -232,6 +274,19 @@ function BuyTick(x){
 window.onload = function(){
 	load();
     	UpdateEverything();
+}
+
+function ViewChangelog(){
+	//$('#newVersion').modal('show');
+}
+
+function ShowVersion(){
+	if(playerGameVersion == ""){
+		$('#gameversion').html("Version: " + currentGameVersion);	
+	}else{
+		$('#gameversion').html("Version: " + playerGameVersion);
+	}
+	
 }
 
 var UpdateEverything = function(){
@@ -337,4 +392,5 @@ var saveGame = setInterval(save, 60000);
 
 function wipeSave(){
 	localStorage.removeItem("save");
+	location.reload();
 }
