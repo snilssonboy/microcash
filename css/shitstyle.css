@@ -167,6 +167,14 @@ hr {
     float: none;
 }
 
+strong{
+  color: #fea03b;
+}
+
+#cllist li {
+    list-style-type: none;
+}
+
 .jumbotron{
     padding: 0px;
     padding-top: 40px;
