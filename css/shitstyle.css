@@ -161,6 +161,11 @@ hr {
     background-color: #fe8401;
 }
 
+.progress-bar{
+  webkit-transition: none;
+  transition: none;
+}
+
 .vcenter {
     display: inline-block;
     vertical-align: middle;

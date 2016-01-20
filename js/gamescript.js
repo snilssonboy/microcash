@@ -352,8 +352,8 @@ function cycleTimer() {
 	$('#tickbarwidth').width(((tick/tickLength) * 100).toFixed(2) + '%');
 
 	var a = moment.duration(tickLength - tick);
-	var a = a.seconds() + " sec";
-	$('#jumboticktext').html(a + ' until tickcycle completes');
+	//var a = a.seconds() + " sec";
+	$('#jumboticktext').html(a.seconds() + "." + (a.milliseconds() / 100).toFixed(0) + ' until tickcycle completes');
 
 	UpdateEverything();
 
