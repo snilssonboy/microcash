@@ -1,5 +1,5 @@
 var tick = 0;
-var tickLength = 100000
+var tickLength = 10000
 var totalCycles = 0.00;
 
 var money = 0.00;
@@ -62,9 +62,9 @@ function CalculatePerSec(){
 
 function CalculateTickLength(){
 	// Reduces effectiveness of upgrade incrementally
-	tickLength = 100000 - Math.pow((tt[0].manual + tt[0].automatic), 0.9);
+	tickLength = 10000 - Math.pow((tt[0].manual + tt[0].automatic), 0.9);
 	// Clamps min/max ticklength between 5000ms and 100000ms
-	tickLength = Math.max(5000, Math.min((100000 - Math.pow((tt[0].manual + tt[0].automatic), 0.9)), 100000));
+	tickLength = Math.max(1000, Math.min((10000 - Math.pow((tt[0].manual + tt[0].automatic), 0.9)), 10000));
 }
 
 function ShortifyNumber(valueToConvert, x){
@@ -167,19 +167,6 @@ function save(){
 
 function load(){
 	var savegame = JSON.parse(localStorage.getItem("save"));
-
-	/*if(savegame.playerGameVersion == null){
-		playerGameVersion = currentGameVersion;
-	}else if(typeof savegame.playerGameVersion !== "undefined"){
-		playerGameVersion = savegame.playerGameVersion;
-	}
-
-	if(savegame.playerGameVersion !== currentGameVersion){
-		NewVersionWarning();
-	}*/
-
-	//console.log(savegame.playerGameVersion);
-
 
 	if(savegame !== null){
 
@@ -363,10 +350,9 @@ function cycleTimer() {
 	}
 
 	$('#tickbarwidth').width(((tick/tickLength) * 100).toFixed(2) + '%');
-	$('#tickbartext').html(((tick/tickLength) * 100).toFixed(0) + "%"/* + " (" + tick + "/" + tickLength + ")"*/);
 
 	var a = moment.duration(tickLength - tick);
-	var a = a.minutes() + "m " + a.seconds() + "s";
+	var a = a.seconds() + " sec";
 	$('#jumboticktext').html(a + ' until tickcycle completes');
 
 	UpdateEverything();
