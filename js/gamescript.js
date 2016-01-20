@@ -365,6 +365,10 @@ function cycleTimer() {
 	$('#tickbarwidth').width(((tick/tickLength) * 100).toFixed(2) + '%');
 	$('#tickbartext').html(((tick/tickLength) * 100).toFixed(0) + "%"/* + " (" + tick + "/" + tickLength + ")"*/);
 
+	var a = moment.duration(tickLength - tick);
+	var a = a.minutes() + "m " + a.seconds() + "s";
+	$('#jumboticktext').html(a + ' until tickcycle completes');
+
 	UpdateEverything();
 
 }
@@ -380,11 +384,7 @@ function secTimer(){
 	UpdateEverything();
 
 	// Use function for tick cycle text in jumbotron
-	var a = moment.duration(tickLength - tick);
-	var a = a.minutes() + "m " + a.seconds() + "s";
-
-
-	$('#jumboticktext').html(a + ' until tickcycle completes');
+	
 }
 // Per Second Tick END
 
