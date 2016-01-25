@@ -159,11 +159,28 @@ hr {
 }
 
 #clickpopup{
+  font-size: 15px;
   position: absolute;
   width: 150px;
   height: 20px;
   opacity: 1;
-  color: #fe8401;
+  color: #66ccff;
+  transition: all 2s ease-in-out;
+  user-select: none;
+  -o-user-select: none; 
+  -moz-user-select: none; 
+  -khtml-user-select: none; 
+  -webkit-user-select: none; 
+  pointer-events: none;
+}
+
+#persecpopup{
+  font-size: 16px;
+  position: absolute;
+  width: 150px;
+  height: 20px;
+  opacity: 1;
+  color: green;
   transition: all 2s ease-in-out;
   user-select: none;
   -o-user-select: none; 

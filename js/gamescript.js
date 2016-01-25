@@ -276,25 +276,52 @@ function ShowVersion(){
 	
 }
 
-function addParticle(x, y) {
-    var elem = document.createElement('div');
-    elem.setAttribute("id", "clickpopup");
-    elem.style.left = (x + 20) + 'px';
-    elem.style.top = (y - 10) + 'px';
+function addParticle(x, y, z) {
 
-    elem.innerHTML = "+" + ShortifyNumber(moneyPerClick, "mpc") + " <i class='fa fa-usd'></i>";
-     
-    setTimeout(function() {
-        elem.style.opacity = '0';
-        elem.style.marginTop = '-100px';
-    }, 100);
+	if(z == "gpc"){
 
-    document.body.appendChild(elem);
+		var elem = document.createElement('div');
+		elem.setAttribute("id", "clickpopup");
+		elem.style.left = (x + 20) + 'px';
+		elem.style.top = (y - 10) + 'px';
 
-    setTimeout(function() {
-        document.body.removeChild(elem);
-    }, 2000);
+		elem.innerHTML = "+" + ShortifyNumber(moneyPerClick, "mpc") + " <i class='fa fa-usd'></i>";
 
+		setTimeout(function() {
+			elem.style.opacity = '0';
+			elem.style.marginTop = '-100px';
+		}, 100);
+
+		document.body.appendChild(elem);
+
+		setTimeout(function() {
+			document.body.removeChild(elem);
+		}, 2000);
+
+	}else if(z == "gps"){
+
+		var pos = $('#persecdisplay').offset();
+
+		var elem = document.createElement('div');
+		elem.setAttribute("class", "hidden-xs hidden-sm");
+		elem.setAttribute("id", "persecpopup");
+		elem.style.left = (pos.left + 25) + 'px';
+		elem.style.top = (pos.top + 30) + 'px';
+
+		elem.innerHTML = "+" + ShortifyNumber(moneyPerSec, "mpc") + " <i class='fa fa-usd'></i>";
+
+		setTimeout(function() {
+			elem.style.opacity = '0';
+			elem.style.marginTop = '+100px';
+		}, 100);
+
+		document.body.appendChild(elem);
+
+		setTimeout(function() {
+			document.body.removeChild(elem);
+		}, 2000);
+
+	}
 }
 
 
@@ -305,7 +332,7 @@ $(document).mousedown(function(e) {
 
     if(e.target.id == "moneybutton"){
     	Click();
-    	addParticle(e.pageX, e.pageY);
+    	addParticle(e.pageX, e.pageY, "gpc");
     }
     	
 });
@@ -438,6 +465,7 @@ function secTimer(){
 	// Adds gold from Autobots
 	money += moneyPerSec;
 	moneyTotal += moneyPerSec;
+	addParticle(0, 0, "gps");
 	UpdateEverything();
 
 	// Use function for tick cycle text in jumbotron
