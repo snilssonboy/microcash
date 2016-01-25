@@ -278,13 +278,9 @@ function ShowVersion(){
 
 function addParticle(x, y) {
     var elem = document.createElement('div');
-    elem.style.position = 'absolute';
-    elem.style.width = '150px';
-    elem.style.height = '20px';
+    elem.setAttribute("id", "clickpopup");
     elem.style.left = (x + 20) + 'px';
     elem.style.top = (y - 10) + 'px';
-    elem.style.opacity = '1';
-    elem.style.transition = 'all 2s ease-in-out';
 
     elem.innerHTML = "+" + ShortifyNumber(moneyPerClick, "mpc") + " <i class='fa fa-usd'></i>";
      
@@ -303,11 +299,9 @@ function addParticle(x, y) {
 
 
 $(document).mousedown(function(e) {
-//	console.log("Klickade på " + e.target)
+
     window.x = e.pageX;
     window.y = e.pageY;
-
-    //console.log(e.target.id);
 
     if(e.target.id == "moneybutton"){
     	Click();

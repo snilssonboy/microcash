@@ -149,6 +149,29 @@ hr {
     outline: none;
 }
 
+.unclickable{
+  user-select: none;
+  -o-user-select: none; 
+  -moz-user-select: none; 
+  -khtml-user-select: none; 
+  -webkit-user-select: none; 
+  pointer-events: none;
+}
+
+#clickpopup{
+  position: absolute;
+  width: 150px;
+  height: 20px;
+  opacity: 1;
+  color: #fe8401;
+  transition: all 2s ease-in-out;
+  user-select: none;
+  -o-user-select: none; 
+  -moz-user-select: none; 
+  -khtml-user-select: none; 
+  -webkit-user-select: none; 
+  pointer-events: none;
+}
 
 .progress{
     background: #404040;
