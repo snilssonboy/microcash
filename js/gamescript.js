@@ -11,7 +11,7 @@ var clickCount = 0;
 var totalClicks = 0.00;
 
 var playerGameVersion = "";
-var currentGameVersion = "0.0.0.2";
+var currentGameVersion = "0.0.0.3";
 
 var Item = function(bc,c,u,m,a){
 	self = this;
