@@ -311,7 +311,6 @@ $(document).mousedown(function(e) {
 
     if(e.target.id == "moneybutton"){
     	Click();
-    	console.log("Klickade på knappen, position: " + e.pageX + "  " + e.pageY);
     	addParticle(e.pageX, e.pageY);
     }
     	
